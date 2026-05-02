@@ -76,4 +76,4 @@ React, TypeScript, Vite, Tailwind CSS, Zustand, Framer Motion, and Howler.js.
 
 ## Credits
 
-Built in 12 hours by [your names], [hackathon name and date].
+Built in 12 hours by Ananthakrishnan Jayadev,Hayagrive Srikanth for Huskyhack
