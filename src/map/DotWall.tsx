@@ -44,12 +44,23 @@ const corridorLabels: Record<string, string> = {
 export function DotWall() {
   const [selected, setSelected] = useState<SelectedDot>(null);
   const groups = useMemo(() => buildCorridorGroups(), []);
+  const totalDots = dimArcs.length + famousPlayers.length + failedArcs.length;
+  const nationalTeamOutcomes = famousPlayers.length;
+  const bypassedOutcomes = famousPlayers.filter((player) => player.bypassedSystem).length;
 
   return (
     <section
       className="fixed inset-0 overflow-y-auto bg-[#0a0e1a] px-6 py-6 text-white"
       onClick={() => setSelected(null)}
     >
+      <style>
+        {`
+          @keyframes goldPulse {
+            0%, 100% { box-shadow: 0 0 6px rgba(250, 204, 21, 0.4); }
+            50% { box-shadow: 0 0 14px rgba(250, 204, 21, 0.8); }
+          }
+        `}
+      </style>
       <header className="mb-7 max-w-5xl">
         <p className="text-xs font-bold uppercase tracking-[0.24em] text-amber-300/90">
           Canada, mapped
@@ -57,11 +68,17 @@ export function DotWall() {
         <h2 className="mt-2 text-4xl font-black leading-tight md:text-6xl">
           The almost-stories.
         </h2>
-        <p className="mt-4 max-w-4xl text-sm leading-6 text-white/[0.62] md:text-base md:leading-7">
-          Every dot is a family who came to Canada through one of these corridors.
-          Gold dots made the national team. Amber dots are documented failure
-          patterns. Click any dot.
-        </p>
+        <div className="mt-4 max-w-4xl">
+          <p className="mb-3 text-lg font-bold leading-tight text-white md:text-xl">
+            {totalDots} families. {nationalTeamOutcomes} outcomes.{' '}
+            {bypassedOutcomes} of {nationalTeamOutcomes} bypassed the system
+            Canada is selling.
+          </p>
+          <p className="text-sm leading-6 text-white/[0.62]">
+            Each dot is a family who came to Canada through one of these
+            corridors. Click any dot.
+          </p>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 gap-3 pb-10 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
@@ -118,7 +135,7 @@ function CorridorBlock({
         {group.players.map((player) => (
           <button
             key={player.id}
-            className="h-2.5 w-2.5 rounded-full bg-[#facc15] shadow-[0_0_14px_rgba(250,204,21,0.9)] transition hover:scale-125 animate-[dotPulse_1.8s_ease-in-out_infinite]"
+            className="h-2.5 w-2.5 rounded-full bg-[#facc15] shadow-[0_0_14px_rgba(250,204,21,0.9)] transition hover:scale-125 animate-[goldPulse_2s_ease-in-out_infinite]"
             type="button"
             aria-label={player.name}
             onClick={(event) => {
@@ -183,10 +200,12 @@ function buildCorridorGroups(): CorridorGroup[] {
     playersByTag.set(player.corridorTag, current);
   }
 
-  return Array.from(grouped.entries()).map(([tag, arcs]) => ({
-    tag,
-    label: corridorLabels[tag] ?? tag,
-    arcs,
-    players: playersByTag.get(tag) ?? [],
-  }));
+  return Array.from(grouped.entries())
+    .map(([tag, arcs]) => ({
+      tag,
+      label: corridorLabels[tag] ?? tag,
+      arcs,
+      players: playersByTag.get(tag) ?? [],
+    }))
+    .sort((a, b) => b.players.length - a.players.length);
 }
