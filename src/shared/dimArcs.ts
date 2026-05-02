@@ -48,6 +48,12 @@ const seedCorridors: DimArcSeed[] = [
 
   // Jamaican migration (Toronto, Brampton)
   { origin: [17.9714, -76.7936], dest: [43.7315, -79.7624], count: 60, tag: 'jamaican-brampton', yearRange: [1970, 2024] },
+
+  // Smaller player-linked corridors
+  { origin: [4.7110, -74.0721], dest: [43.6532, -79.3832], count: 8, tag: 'colombian-toronto', yearRange: [1970, 2024] },
+  { origin: [41.1579, -8.6291], dest: [42.0529, -82.5990], count: 5, tag: 'portuguese-leamington', yearRange: [1970, 2024] },
+  { origin: [5.3600, -4.0083], dest: [45.5019, -73.5674], count: 8, tag: 'ivorian-montreal', yearRange: [1990, 2024] },
+  { origin: [49.2827, -123.1207], dest: [49.2488, -122.9805], count: 12, tag: 'bc-burnaby', yearRange: [1970, 2024] },
 ];
 
 function jitter(coord: [number, number], range = 0.5): [number, number] {

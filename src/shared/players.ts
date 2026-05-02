@@ -5,6 +5,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'davies',
     name: 'Alphonso Davies',
+    corridorTag: 'liberian-edmonton',
     birthplace: 'Buduburam refugee camp, Ghana',
     birthLatLng: [5.6037, -0.1870],
     transitPoint: 'Edmonton',
@@ -21,6 +22,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'david',
     name: 'Jonathan David',
+    corridorTag: 'haitian-montreal',
     birthplace: 'Brooklyn, New York',
     birthLatLng: [40.6782, -73.9442],
     transitPoint: 'Ottawa',
@@ -36,6 +38,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'larin',
     name: 'Cyle Larin',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Brampton, Ontario',
     birthLatLng: [43.7315, -79.7624],
     canadianCity: 'Brampton',
@@ -49,6 +52,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'tajon-buchanan',
     name: 'Tajon Buchanan',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Toronto area, raised in Brampton',
     birthLatLng: [43.7315, -79.7624],
     canadianCity: 'Brampton',
@@ -62,6 +66,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'osorio',
     name: 'Jonathan Osorio',
+    corridorTag: 'colombian-toronto',
     birthplace: 'Toronto, Ontario',
     birthLatLng: [43.6532, -79.3832],
     canadianCity: 'Toronto',
@@ -75,6 +80,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'hutchinson',
     name: 'Atiba Hutchinson',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Brampton, Ontario',
     birthLatLng: [43.7315, -79.7624],
     canadianCity: 'Brampton',
@@ -88,6 +94,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'eustaquio',
     name: 'Stephen Eustaquio',
+    corridorTag: 'portuguese-leamington',
     birthplace: 'Leamington, Ontario',
     birthLatLng: [42.0529, -82.5990],
     transitPoint: 'Portugal (returned at age 7)',
@@ -103,6 +110,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'kone',
     name: 'Ismael Kone',
+    corridorTag: 'ivorian-montreal',
     birthplace: 'Abidjan, Cote d\'Ivoire',
     birthLatLng: [5.3600, -4.0083],
     canadianCity: 'Montreal',
@@ -117,6 +125,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'hoilett',
     name: 'Junior Hoilett',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Brampton, Ontario',
     birthLatLng: [43.7315, -79.7624],
     canadianCity: 'Brampton',
@@ -130,6 +139,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'sinclair',
     name: 'Christine Sinclair',
+    corridorTag: 'bc-burnaby',
     birthplace: 'Burnaby, British Columbia',
     birthLatLng: [49.2488, -122.9805],
     canadianCity: 'Burnaby',
@@ -143,6 +153,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'kadeisha-buchanan',
     name: 'Kadeisha Buchanan',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Toronto, raised in Brampton/Mississauga',
     birthLatLng: [43.7315, -79.7624],
     canadianCity: 'Brampton',
@@ -156,6 +167,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'lawrence',
     name: 'Ashley Lawrence',
+    corridorTag: 'jamaican-brampton',
     birthplace: 'Toronto, raised in Caledon East',
     birthLatLng: [43.6532, -79.3832],
     canadianCity: 'Caledon East (Brampton corridor)',
@@ -169,6 +181,7 @@ export const famousPlayers: FamousPlayer[] = [
   {
     id: 'grosso',
     name: 'Julia Grosso',
+    corridorTag: 'bc-burnaby',
     birthplace: 'Vancouver, British Columbia',
     birthLatLng: [49.2827, -123.1207],
     canadianCity: 'Vancouver',

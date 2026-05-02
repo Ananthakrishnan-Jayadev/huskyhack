@@ -1,4 +1,4 @@
-import { Map } from '@/map/Map';
+import { DotWall } from '@/map/DotWall';
 import { Transition } from '@/seam/Transition';
 import { tagline, title } from '@/shared/copy';
 import { useAppStore } from './store';
@@ -8,7 +8,7 @@ export function App() {
   const startDemoMap = useAppStore((state) => state.startDemoMap);
 
   if (phase === 'seam') return <Transition />;
-  if (phase === 'map') return <Map mode="all" />;
+  if (phase === 'map') return <DotWall />;
 
   return (
     <main className="min-h-screen bg-slate-950 text-white">

@@ -34,6 +34,7 @@ export type PlayerArc = {
 export type FamousPlayer = {
   id: string;
   name: string;
+  corridorTag?: string;
   birthplace: string;
   birthLatLng: [number, number];
   transitPoint?: string;
