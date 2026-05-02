@@ -22,6 +22,7 @@ type AppStore = {
   // Selection
   selectedCorridor: Corridor | null;
   selectCorridor: (corridor: Corridor) => void;
+  setCorridor: (corridor: Corridor) => void;
 
   // Pipeline financial state (from teammate's branch)
   budget: number;
@@ -75,6 +76,7 @@ export const useAppStore = create<AppStore>((set) => ({
   // Setters
   setPhase: (phase) => set({ phase }),
   selectCorridor: (corridor) => set({ selectedCorridor: corridor }),
+  setCorridor: (corridor) => set({ selectedCorridor: corridor }), // alias for teammate's components
   setBudget: (amount) =>
     set((state) => ({
       budget: typeof amount === 'function' ? amount(state.budget) : amount,

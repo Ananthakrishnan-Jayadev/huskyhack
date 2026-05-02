@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html,
 body,
@@ -47,6 +44,3 @@ body {
     transform: scale(1.18);
   }
 }
-=======
-@import "tailwindcss";
->>>>>>> origin/srikanth-pipeline
