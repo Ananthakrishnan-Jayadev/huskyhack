@@ -1,39 +1,38 @@
 # One in a Million, By Design
 
-Canada has one Alphonso Davies. The math says one. This is why.
+**Canada has one Alphonso Davies. The math says one. This is why.**
 
 ## What this is
 
-On June 12, 2026, Canada plays Bosnia and Herzegovina at Toronto Stadium at Exhibition Place, the tournament name for BMO Field, in Canada's first men's FIFA World Cup match on home soil.
+On June 12, 2026, Canada plays Bosnia and Herzegovina at Toronto Stadium (the tournament name for BMO Field), Exhibition Place — Canada's first men's FIFA World Cup match on home soil.
 
-The team Canada is selling is real: refugees, immigrants, and children of immigrants. The system that produced many of them is not what Canada is selling. Alphonso Davies was first carried by Free Footie, a free after-school program in Edmonton. Jonathan David left the Canadian youth scene for Belgium. Many of the most important Canadian footballers reached the top through NCAA routes, private academies, overseas clubs, or community programs.
+The team Canada is selling is real: refugees, immigrants, and children of immigrants. The system that produced them is not what Canada is selling. Alphonso Davies was first carried by Free Footie, a free after-school program in Edmonton — not by the official Canadian developmental pathway, which costs thousands of dollars a year and prices most newcomer families out. Jonathan David skipped Canadian academies entirely and signed with a Belgian club at seventeen. Almost every star on Canada's men's roster reached the top through NCAA scholarships, private academies, overseas clubs, or free community programs — around, not through, the system.
 
-This project is a two-part interactive experience. First, a family tries to put a kid through the Canadian soccer pipeline. Then that family's arc joins thousands of dim migration arcs on a globe while famous Canadian footballers light up as the exceptions.
+This project is a two-part interactive experience. First, you play one immigrant family trying to put a kid through the Canadian soccer pipeline. Most playthroughs end with your kid quitting because the family runs out of money. Then your family's arc joins hundreds of others — kids who took the same migration journey and never got the same outcome — while thirteen Canadian national-team players light up as the exceptions.
 
-Canada has one Davies. The math says one. This is why.
+Canada has one Davies. The math says one. The rest of the dots are why.
 
 ## How to play
 
-1. Pick your family's origin corridor.
-2. Make decisions about your kid's soccer career.
+1. Pick your family's origin corridor — Liberia → Edmonton, Jamaica → Brampton, Punjab → Brampton, or Syria → Mississauga.
+2. Make four decisions about your kid's soccer career between ages 9 and 15.
 3. Watch what happens.
 4. See where your family fits among the others.
 
-## Current Build
+The whole experience runs about 90 seconds.
 
-This repo currently contains the Person B data layer and map scaffold:
+## How to run
 
-- verified corridor and player data files
-- Canada-focused 2.5D map rendering with famous, failed, dim, and player points
-- hover detail panel
-- Howler sound instances
-- seam transition placeholder with the locked closing line
+```bash
+npm install
+npm run dev
+```
 
-Person A owns the pipeline game and should integrate their pipeline components without editing the map files unless both sides agree.
+Then open the localhost URL Vite prints. Click *Start* on the title screen.
 
-## Player Images
+## Player photos (optional)
 
-Drop player photos into `public/players/` using the player ids. PNG, JPG, and JPEG files are supported:
+Drop player photos into `public/players/` using the player IDs. PNG, JPG, and JPEG are supported:
 
 ```text
 public/players/davies.png
@@ -51,19 +50,30 @@ public/players/lawrence.png
 public/players/grosso.png
 ```
 
-If a file is missing, the hover card falls back to initials.
+If a file is missing, the hover card falls back to player initials.
 
 ## Sources
 
-- IRCC, Canada's Syrian commitments: 25,000-refugee commitment completed, with 26,172 people counted in the initial commitment.
-- Statistics Canada, 2021 Census Profile for Brampton: South Asian visible minority population, Punjabi ethnic or cultural origin, and Jamaican ethnic or cultural origin.
-- FIFA World Cup 26 match schedule: Canada vs Bosnia and Herzegovina, Group B, Toronto Stadium, June 12, 2026.
-- Toronto FIFA World Cup 26 host schedule: Toronto Stadium at Exhibition Place, 3 p.m. ET, Canada's first men's World Cup match in Canada.
-- Wikipedia player pages for Alphonso Davies, Jonathan David, Cyle Larin, Tajon Buchanan, Jonathan Osorio, Atiba Hutchinson, Stephen Eustaquio, Ismael Kone, Junior Hoilett, Christine Sinclair, Kadeisha Buchanan, Ashley Lawrence, and Julia Grosso.
-- Free Footie for Davies's Edmonton pathway context.
-- Sigma FC and public player records for academy and NCAA pathway context.
-- Canadian Council for Refugees and Foot Solidaire context for migrant vulnerability and false-agent composite framing.
+**Migration and refugee data**
 
-## Built With
+- Immigration, Refugees and Citizenship Canada (IRCC), Operation Syrian Refugees — 25,555 Syrian refugees resettled between December 2015 and February 2016; 26,172 in the full initial commitment.
+- Statistics Canada, 2021 Census Profile for Brampton — 340,815 South Asian residents (52.42% of the city), 141,005 reporting Punjabi as mother tongue (the city's leading non-official language), 30,960 reporting Jamaican ethnic origin.
+- CIC Facts and Figures 2010 — 647 permanent residents from Liberia admitted to Canada, 2003–2010.
+- Statistics Canada, 2016 Census — 2,485 Canadians reported Liberian ethnic origin.
+- Canadian Council for Refugees and Foot Solidaire (founded by Jean-Claude Mbvoumin) — methodology underpinning the composite "Trafficked Trial" framing.
 
-React, TypeScript, Vite, Tailwind CSS, Zustand, Framer Motion, react-globe.gl, Three.js, and Howler.js.
+**Football**
+
+- FIFA World Cup 26 match schedule — Canada vs. Bosnia and Herzegovina, Group B, Toronto Stadium, June 12, 2026, 3 p.m. ET.
+- Wikipedia player pages for Alphonso Davies, Jonathan David, Cyle Larin, Tajon Buchanan, Jonathan Osorio, Atiba Hutchinson, Stephen Eustáquio, Ismaël Koné, Junior Hoilett, Christine Sinclair, Kadeisha Buchanan, Ashley Lawrence, and Julia Grosso.
+- Free Footie — Davies's Edmonton pathway.
+- Sigma FC — Brampton-area academy that produced Larin, Tajon Buchanan, and others outside Canada Soccer's official developmental pathway.
+- MLS SuperDraft public records — Canadian draft conversion rates underpinning the composite "Sigma Washout" framing.
+
+## Built with
+
+React, TypeScript, Vite, Tailwind CSS, Zustand, Framer Motion, and Howler.js.
+
+## Credits
+
+Built in 12 hours by [your names], [hackathon name and date].
