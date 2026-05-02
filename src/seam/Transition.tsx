@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useAppStore } from '@/app/store';
-import { closingLine } from '@/shared/copy';
 import { playSound, silenceTone } from '@/shared/sounds';
 
 export function Transition() {
@@ -55,7 +54,11 @@ export function Transition() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 12 }}
         >
-          {closingLine}
+          <span className="block">Thirteen players.</span>
+          <span className="block">Twelve bypasses.</span>
+          <span className="block">
+            Seven hundred corridors that produced no one. This is the system Canada is selling.
+          </span>
         </motion.h2>
       </section>
     </main>

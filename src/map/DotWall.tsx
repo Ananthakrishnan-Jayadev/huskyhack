@@ -108,16 +108,32 @@ function CorridorBlock({
   onSelect: (item: SelectedDot) => void;
 }) {
   const firstArc = group.arcs[0];
+  const hasGold = group.players.length > 0;
 
   return (
-    <article className="min-h-[132px] rounded border border-white/[0.08] bg-white/[0.035] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.22)]">
+    <article className="min-h-[132px] rounded border border-white/[0.08] bg-white/[0.035] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-colors duration-200 ease-out hover:border-white/[0.15] hover:bg-white/[0.05]">
       <div className="mb-3 flex items-start justify-between gap-2">
-        <h3 className="text-[11px] font-bold uppercase leading-4 tracking-[0.12em] text-white/58">
+        <h3
+          className={[
+            'text-[11px] font-bold uppercase leading-4 tracking-[0.12em]',
+            hasGold ? 'text-amber-300/90' : 'text-white/50',
+          ].join(' ')}
+        >
           {group.label}
         </h3>
-        <span className="shrink-0 text-[10px] font-bold text-white/35">
-          {group.arcs.length + group.players.length}
-        </span>
+        <div className="shrink-0 text-right">
+          <div
+            className={[
+              'text-2xl font-black leading-none',
+              hasGold ? 'text-white/[0.85]' : 'text-white/50',
+            ].join(' ')}
+          >
+            {group.arcs.length + group.players.length}
+          </div>
+          <div className="mt-1 text-[10px] uppercase leading-none tracking-wider text-white/40">
+            families
+          </div>
+        </div>
       </div>
       <div className="flex flex-wrap content-start gap-1.5">
         {group.arcs.map((arc) => (
@@ -145,6 +161,12 @@ function CorridorBlock({
           />
         ))}
       </div>
+      {group.tag === 'jamaican-brampton' && (
+        <p className="mt-3 text-xs font-medium italic leading-snug text-amber-300/80">
+          Brampton&apos;s Caribbean diaspora produced more national-team players
+          than any official Canadian academy.
+        </p>
+      )}
     </article>
   );
 }
@@ -155,14 +177,24 @@ function FailureBlock({
   onSelect: (item: SelectedDot) => void;
 }) {
   return (
-    <article className="min-h-[132px] rounded border border-amber-700/25 bg-amber-950/[0.12] p-3 shadow-[0_18px_60px_rgba(0,0,0,0.22)]">
-      <div className="mb-3 flex items-start justify-between gap-2">
-        <h3 className="text-[11px] font-bold uppercase leading-4 tracking-[0.12em] text-amber-200/70">
-          Documented failure patterns
-        </h3>
-        <span className="shrink-0 text-[10px] font-bold text-amber-100/40">
-          {failedArcs.length}
-        </span>
+    <article className="min-h-[132px] rounded border border-amber-900/40 bg-amber-950/[0.05] p-4 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-colors duration-200 ease-out hover:border-amber-800/60 hover:bg-amber-950/[0.09]">
+      <div className="mb-2 flex items-start justify-between gap-3">
+        <div>
+          <h3 className="text-sm font-bold uppercase leading-4 tracking-wider text-amber-500">
+            The named failures
+          </h3>
+          <p className="mt-1 text-xs leading-5 text-white/50">
+            Composite cases drawn from documented patterns. Click each to read.
+          </p>
+        </div>
+        <div className="shrink-0 text-right">
+          <div className="text-2xl font-black leading-none text-amber-500/85">
+            {failedArcs.length}
+          </div>
+          <div className="mt-1 text-[10px] uppercase leading-none tracking-wider text-amber-500/50">
+            composites
+          </div>
+        </div>
       </div>
       <div className="flex flex-wrap content-start gap-2">
         {failedArcs.map((arc) => (
