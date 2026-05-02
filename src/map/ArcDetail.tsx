@@ -9,13 +9,25 @@ type ArcDetailProps = {
     | { kind: 'dim'; data: DimArc }
     | { kind: 'player' }
     | null;
+  onClose?: () => void;
 };
 
-export function ArcDetail({ hovered }: ArcDetailProps) {
+export function ArcDetail({ hovered, onClose }: ArcDetailProps) {
   if (!hovered) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 z-20 max-h-[42vh] overflow-y-auto rounded-lg border border-white/10 bg-black/88 p-4 text-white shadow-2xl backdrop-blur-md md:left-auto md:max-h-[320px] md:w-[760px]">
+    <div
+      className="fixed right-6 top-[100px] z-20 max-h-[70vh] w-[420px] max-w-[calc(100vw-48px)] overflow-y-auto rounded-lg border border-white/10 bg-[#0a0e1a]/[0.92] p-4 text-white shadow-2xl backdrop-blur-md"
+      onClick={(event) => event.stopPropagation()}
+    >
+      <button
+        className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded border border-white/10 bg-black/40 text-sm font-bold text-white/70 hover:bg-white/10 hover:text-white"
+        type="button"
+        aria-label="Close detail panel"
+        onClick={onClose}
+      >
+        X
+      </button>
       {hovered.kind === 'famous' && <FamousDetail player={hovered.data} />}
       {hovered.kind === 'failed' && <FailedDetail arc={hovered.data} />}
       {hovered.kind === 'dim' && <DimDetail arc={hovered.data} />}
@@ -26,11 +38,11 @@ export function ArcDetail({ hovered }: ArcDetailProps) {
 
 function FamousDetail({ player }: { player: FamousPlayer }) {
   return (
-    <div className="grid gap-4 md:grid-cols-[250px_1fr]">
+    <div className="grid gap-4 pr-7 md:grid-cols-[140px_1fr]">
       <PlayerImage player={player} />
       <div className="space-y-3">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-2xl font-bold leading-tight">{player.name}</h3>
+          <h3 className="text-xl font-bold leading-tight">{player.name}</h3>
           {player.bypassedSystem && (
             <span className="shrink-0 rounded bg-red-600/80 px-2 py-1 text-xs font-bold">
               BYPASSED
@@ -56,7 +68,7 @@ function PlayerImage({ player }: { player: FamousPlayer }) {
 
   if (failed) {
     return (
-      <div className="flex h-[220px] items-center justify-center rounded-md border border-white/10 bg-slate-800 text-4xl font-black text-amber-300 md:h-full">
+      <div className="flex h-[180px] items-center justify-center rounded-md border border-white/10 bg-slate-800 text-4xl font-black text-amber-300 md:h-full">
         {player.name
           .split(' ')
           .map((part) => part[0])
@@ -69,7 +81,7 @@ function PlayerImage({ player }: { player: FamousPlayer }) {
   return (
     <img
       alt={player.name}
-      className="h-[220px] w-full rounded-md border border-white/10 bg-black object-contain md:h-full"
+      className="h-[180px] w-full rounded-md border border-white/10 bg-black object-contain md:h-full"
       src={getPlayerImageSrc(player.id, extensionIndex)}
       onError={() => setExtensionIndex((current) => current + 1)}
     />
