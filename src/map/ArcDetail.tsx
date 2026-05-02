@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { getPlayerImageSrc, playerImageExtensions } from '@/shared/playerImages';
 import type { DimArc, FailedArc, FamousPlayer } from '@/shared/types';
 
 type ArcDetailProps = {
@@ -13,7 +15,7 @@ export function ArcDetail({ hovered }: ArcDetailProps) {
   if (!hovered) return null;
 
   return (
-    <div className="fixed right-6 top-6 z-20 max-w-sm rounded-lg border border-white/10 bg-black/85 p-5 text-white shadow-2xl backdrop-blur-md">
+    <div className="fixed bottom-6 left-6 right-6 z-20 max-h-[42vh] overflow-y-auto rounded-lg border border-white/10 bg-black/88 p-4 text-white shadow-2xl backdrop-blur-md md:left-auto md:max-h-[320px] md:w-[760px]">
       {hovered.kind === 'famous' && <FamousDetail player={hovered.data} />}
       {hovered.kind === 'failed' && <FailedDetail arc={hovered.data} />}
       {hovered.kind === 'dim' && <DimDetail arc={hovered.data} />}
@@ -24,24 +26,53 @@ export function ArcDetail({ hovered }: ArcDetailProps) {
 
 function FamousDetail({ player }: { player: FamousPlayer }) {
   return (
-    <div className="space-y-3">
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="text-xl font-bold">{player.name}</h3>
-        {player.bypassedSystem && (
-          <span className="rounded bg-red-600/80 px-2 py-1 text-xs font-bold">
-            BYPASSED
-          </span>
-        )}
-        {!player.bypassedSystem && (
-          <span className="rounded bg-yellow-600/80 px-2 py-1 text-xs font-bold">
-            ACADEMY PRODUCT
-          </span>
-        )}
+    <div className="grid gap-4 md:grid-cols-[250px_1fr]">
+      <PlayerImage player={player} />
+      <div className="space-y-3">
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-2xl font-bold leading-tight">{player.name}</h3>
+          {player.bypassedSystem && (
+            <span className="shrink-0 rounded bg-red-600/80 px-2 py-1 text-xs font-bold">
+              BYPASSED
+            </span>
+          )}
+          {!player.bypassedSystem && (
+            <span className="shrink-0 rounded bg-yellow-600/80 px-2 py-1 text-xs font-bold">
+              ACADEMY PRODUCT
+            </span>
+          )}
+        </div>
+        <div className="text-sm font-semibold text-white/70">Born: {player.birthplace}</div>
+        <div className="font-mono text-xs leading-5 text-white/55">{player.pathway}</div>
+        <p className="text-sm leading-6 text-white/90">{player.story}</p>
       </div>
-      <div className="text-sm text-white/70">Born: {player.birthplace}</div>
-      <div className="font-mono text-sm text-white/60">{player.pathway}</div>
-      <p className="text-sm leading-relaxed">{player.story}</p>
     </div>
+  );
+}
+
+function PlayerImage({ player }: { player: FamousPlayer }) {
+  const [extensionIndex, setExtensionIndex] = useState(0);
+  const failed = extensionIndex >= playerImageExtensions.length;
+
+  if (failed) {
+    return (
+      <div className="flex h-[220px] items-center justify-center rounded-md border border-white/10 bg-slate-800 text-4xl font-black text-amber-300 md:h-full">
+        {player.name
+          .split(' ')
+          .map((part) => part[0])
+          .slice(0, 2)
+          .join('')}
+      </div>
+    );
+  }
+
+  return (
+    <img
+      alt={player.name}
+      className="h-[220px] w-full rounded-md border border-white/10 bg-black object-contain md:h-full"
+      src={getPlayerImageSrc(player.id, extensionIndex)}
+      onError={() => setExtensionIndex((current) => current + 1)}
+    />
   );
 }
 

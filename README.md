@@ -24,12 +24,34 @@ Canada has one Davies. The math says one. This is why.
 This repo currently contains the Person B data layer and map scaffold:
 
 - verified corridor and player data files
-- globe arc rendering with famous, failed, dim, and player arcs
+- Canada-focused 2.5D map rendering with famous, failed, dim, and player points
 - hover detail panel
 - Howler sound instances
 - seam transition placeholder with the locked closing line
 
 Person A owns the pipeline game and should integrate their pipeline components without editing the map files unless both sides agree.
+
+## Player Images
+
+Drop player photos into `public/players/` using the player ids. PNG, JPG, and JPEG files are supported:
+
+```text
+public/players/davies.png
+public/players/david.jpg
+public/players/larin.jpeg
+public/players/tajon-buchanan.png
+public/players/osorio.jpeg
+public/players/hutchinson.png
+public/players/eustaquio.png
+public/players/kone.png
+public/players/hoilett.png
+public/players/sinclair.png
+public/players/kadeisha-buchanan.png
+public/players/lawrence.png
+public/players/grosso.png
+```
+
+If a file is missing, the hover card falls back to initials.
 
 ## Sources
 

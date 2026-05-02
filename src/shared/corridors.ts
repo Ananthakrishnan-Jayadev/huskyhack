@@ -1,3 +1,4 @@
+// /src/shared/corridors.ts
 import type { Corridor } from './types';
 
 export const corridors: Corridor[] = [
@@ -9,8 +10,8 @@ export const corridors: Corridor[] = [
     arrivalYear: 2008,
     canadianCity: 'Edmonton',
     canadianLatLng: [53.5461, -113.4938],
-    context: 'You fled the second Liberian civil war. Your kid was born in the camp. You arrived in Edmonton through refugee resettlement when he was five.',
-    realCorridorNote: 'Liberian resettlement to Alberta was real, but I could not verify the precise "2,500 Liberian refugees to Alberta between 2003 and 2010" figure from an accessible IRCC/StatsCan source. Keep this as an approximate/local research note until the dataset is in hand.',
+    context: 'You fled the second Liberian civil war. Your kid was born in the camp. You arrived in Edmonton through the federal Resettlement Assistance Program when he was five.',
+    realCorridorNote: 'Liberian families were among refugee and immigrant communities resettling in Alberta after the second Liberian civil war (1999-2003) under Canada\'s federal Resettlement Assistance Program. CIC records show 647 permanent residents from Liberia admitted to all of Canada from 2003-2010; 2,485 people reported Liberian ethnic origin in Canada in the 2016 Census. Source: CIC Facts and Figures 2010; Statistics Canada 2016 Census.',
     hasFamousPlayer: true,
   },
   {
@@ -22,7 +23,7 @@ export const corridors: Corridor[] = [
     canadianCity: 'Brampton',
     canadianLatLng: [43.7315, -79.7624],
     context: 'You came from Kingston in the late 1990s wave. You settled in Brampton because cousins were already there. Your kid started kicking a ball before he could write his name.',
-    realCorridorNote: 'Brampton is one of Canada\'s major Jamaican-Canadian centres. Statistics Canada\'s 2021 Census profile lists 30,960 residents reporting Jamaican ethnic or cultural origin.',
+    realCorridorNote: '30,960 residents reported Jamaican ethnic origin in Brampton in the 2021 Census, with 22,210 born in Jamaica. The Caribbean diaspora corridor produced more Canadian national-team players than any official developmental pathway. Source: Statistics Canada 2021 Census Profile, Brampton (CY).',
     hasFamousPlayer: true,
   },
   {
@@ -34,7 +35,7 @@ export const corridors: Corridor[] = [
     canadianCity: 'Brampton',
     canadianLatLng: [43.7315, -79.7624],
     context: 'You came from Punjab on a permanent residence application. Your kid plays cricket at school and football on weekends. The neighborhood team is half Punjabi, half Caribbean.',
-    realCorridorNote: 'Brampton has one of Canada\'s largest South Asian communities. Statistics Canada\'s 2021 Census profile lists 340,815 South Asian residents and 57,075 residents reporting Punjabi ethnic or cultural origin.',
+    realCorridorNote: 'Brampton had 340,815 South Asian residents in the 2021 Census - 52.42% of the city - with 141,005 reporting Punjabi as their mother tongue, the city\'s leading non-official language. Despite being one of Canada\'s largest immigrant corridors, no Punjabi-Canadian has appeared on a Canada men\'s senior national team roster, though Punjabi-Canadian players exist in Canada\'s youth and professional pathways. Source: Statistics Canada 2021 Census Profile, Brampton (CY).',
     hasFamousPlayer: false,
   },
   {
@@ -46,7 +47,7 @@ export const corridors: Corridor[] = [
     canadianCity: 'Mississauga',
     canadianLatLng: [43.5890, -79.6441],
     context: 'You arrived in early 2016 as part of the Syrian resettlement program. Your kid was eight when you landed. He learned English on the playground and football in the parking lot.',
-    realCorridorNote: 'Canada completed its commitment to welcome 25,000 Syrian refugees by the end of February 2016; IRCC\'s published total for that initial commitment is 26,172 people.',
+    realCorridorNote: 'Canada welcomed 25,555 Syrian refugees between December 2015 and the end of February 2016 under Operation Syrian Refugees, with the total commitment reaching 26,172 (14,994 government-assisted, 2,224 blended visa office-referred, 8,954 privately sponsored). A significant share resettled in the Greater Toronto Area. Source: IRCC Operation Syrian Refugees; Statistics Canada.',
     hasFamousPlayer: false,
   },
 ];
