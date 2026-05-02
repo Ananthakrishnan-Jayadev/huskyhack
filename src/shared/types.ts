@@ -1,4 +1,3 @@
-// /src/shared/types.ts
 // LOCKED FILE. Do not modify, refactor, rename, or "improve."
 // This is the integration contract between Pipeline and Map.
 
@@ -69,4 +68,25 @@ export type DimArc = {
   year: number;
 };
 
-export type AppPhase = 'title' | 'pipeline' | 'seam' | 'map';
+// Phase machine -- extended from the original four to include
+// 'framing' and 'origin' which the merged Pipeline routes through.
+export type AppPhase = 'title' | 'framing' | 'origin' | 'pipeline' | 'seam' | 'map';
+
+// Game state DURING the pipeline (internal to the Pipeline component)
+// Added from teammate's branch.
+export type PipelineState = {
+  corridor: Corridor | null;
+  budget: number;
+  visibility: number;
+  stress: number;
+  currentDecision: number;
+  decisionHistory: DecisionChoice[];
+};
+
+export type DecisionChoice = {
+  decisionId: string;
+  choiceId: string;
+  budgetDelta: number;
+  visibilityDelta: number;
+  stressDelta: number;
+};
